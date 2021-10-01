@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Users</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body class="p-4 d-flex flex-column align-items-center">
+    <h1 class="display-5">These are all users:</h1>
+    <table class="table table-striped w-75 table-hover">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Full Name
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Options
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users:%}
+            <tr>
+                <td>
+                    {{user.id}}
+                </td>
+                <td>
+                    {{user.first_name}} {{user.last_name}}
+                </td>
+                <td>
+                    {{user.email}} 
+                </td>
+                <td>
+                    <a href="/show/{{user.id}}" class="link-info">Show</a> | <a href="/edit/{{user.id}}" class="link-info">Edit</a> | <a href="/delete/{{user.id}}" class="link-info">Delete</a>
+                </td>
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+    <p><a href="/adduser" class="link-info">Add a New User</a></p>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>
